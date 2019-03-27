@@ -8,28 +8,25 @@ var todos = [
   'Fazer freela'
 ]
 
-// function renderTodos() {
-//   for (todo of todos) {
-//     let todoElement = document.createElement('li')
-//     let todoText = document.createTextNode(todo)
-
-//     todoElement.appendChild(todoText);
-//     listElement.appendChild(todoElement)
-//   }
-// }
-
-
 function renderTodos() {
   listElement.innerHTML = ''
-  let listItemsElement = document.querySelectorAll('#app ul li')
 
-  todos.forEach(function(todo) {
+  todos.forEach(function(todo, todoIndex) {
     let todoElement = document.createElement('li')
     todoElement.classList.add('list-item')
     let todoText = document.createTextNode(todo)
-  
+
+    let todoLink = document.createElement('a')
+    let todoLinkText = document.createTextNode('Excluir')
+
+    todoLink.appendChild(todoLinkText)
+    todoLink.setAttribute('href', '#')
+    todoLink.setAttribute('onclick', `deleteTodo(${todoIndex})`)
+
     todoElement.appendChild(todoText)
+    todoElement.appendChild(todoLink)
     listElement.appendChild(todoElement)
+
   })
 
   }
@@ -46,3 +43,8 @@ function addTodo() {
 buttonElement.addEventListener('click', function() {
   !inputElement.value ? alert('deu falso') : addTodo()
 })
+
+function deleteTodo(pos) {
+  todos.splice(pos, 1)
+  renderTodos()
+}
