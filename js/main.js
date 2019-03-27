@@ -21,15 +21,18 @@ var todos = [
 
 function renderTodos() {
   listElement.innerHTML = ''
+  let listItemsElement = document.querySelectorAll('#app ul li')
 
   todos.forEach(function(todo) {
     let todoElement = document.createElement('li')
+    todoElement.classList.add('list-item')
     let todoText = document.createTextNode(todo)
-    
+  
     todoElement.appendChild(todoText)
     listElement.appendChild(todoElement)
   })
-}
+
+  }
 renderTodos()
 
 function addTodo() {
