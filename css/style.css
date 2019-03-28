@@ -1,15 +1,34 @@
+:root {
+  --primary-color: #94618e;
+  --second-color: #49274a;
+  --primary-contrast-color: #f4decb;
+  --secondary-contrat-color: #f8eee7;
+}
+
 body {
   margin: 0;
   padding: 0;
+  height:100vh;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  width: 80%;
+  width: 70%;
+  height: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  background-color: var(--primary-color);
 }
 
 .list {
@@ -19,7 +38,7 @@ body {
 .list-item {
   margin-bottom: 10px;
   padding: 10px 0;
-  background-color: rgba(0,0,255,0.3);
+  background-color: var(--primary-color);
 }
 
 .input-todo {
@@ -33,7 +52,7 @@ body {
   font-size: 20px;
   font-weight: bold;
   background-color: #fff;
-  width: 30%;
+  width: 70%;
   position: relative;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
 }
