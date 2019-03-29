@@ -13,9 +13,13 @@ function renderTodos() {
     let todoText = document.createTextNode(todo)
 
     let todoLink = document.createElement('a')
-    let todoLinkText = document.createTextNode('Excluir')
-
-    todoLink.appendChild(todoLinkText)
+    todoLink.classList.add('list-item-link')
+    
+    let faDeleteIcon = document.createElement('i')
+    faDeleteIcon.classList.add('far')
+    faDeleteIcon.classList.add('fa-trash-alt')
+    
+    todoLink.appendChild(faDeleteIcon)
     todoLink.setAttribute('href', '#')
     todoLink.setAttribute('onclick', `deleteTodo(${todoIndex})`)
 
